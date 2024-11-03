@@ -224,7 +224,10 @@
         }
 
         readButton.addEventListener('click', displayDigs);
-        listenButton.addEventListener('click', () => { alert('Listening feature coming soon!') });
+listenButton.addEventListener('click', () => {
+    const digsAudio = document.getElementById('digs-audio');
+    digsAudio.play();
+});
         submitButton.addEventListener('click', submitPrompt);
         speechToTextButton.addEventListener('click', startSpeechToText);
     </script>
