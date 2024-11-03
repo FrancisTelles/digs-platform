@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,12 +38,6 @@
         .course-title {
             font-size: 28px;
             font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .meditation-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 10px;
         }
         .begin-button {
@@ -132,6 +125,11 @@
         <header>
             <span class="logo">Digs</span>
         </header>
+        
+        <div class="main-card">
+            <div class="course-title">REGENERATIVE AGRICULTURE</div>
+            <button class="begin-button">Begin Again</button>
+        </div>
 
         <div class="prompt-container">
             <div class="prompt-title">Submit Your Question</div>
@@ -146,6 +144,10 @@
         </div>
 
         <div class="digs-container" id="digs-container"></div>
+
+        <!-- Audio element for the "Listen to Digs" feature -->
+        <audio id="digs-audio" src="digs-audio.mp3"></audio>
+
     </div>
 
     <script>
@@ -156,14 +158,35 @@
         const promptInput = document.getElementById('prompt-input');
         const submitButton = document.getElementById('submit-button');
         const speechToTextButton = document.getElementById('speech-to-text-button');
+        const digsAudio = document.getElementById('digs-audio');
 
         const sampleResponse = {
             digs: [
-                { title: "Principles of No-Till Farming", content: "No-till farming avoids soil disturbance...", sources: ["Regenerative Ag Podcast"] },
-                { title: "Soil Health Benefits", content: "Enhances organic matter...", sources: ["Soil Health Institute"] },
-                { title: "Carbon Sequestration", content: "No-till retains carbon in soil...", sources: ["Kiss the Ground"] },
-                { title: "Natural Pest Control", content: "Healthy soil reduces pests...", sources: ["Advancing Eco Ag"] },
-                { title: "Long-Term Benefits", content: "Yields improve over time...", sources: ["No-Till Farmer"] }
+                { 
+                    title: "Principles of No-Till Farming", 
+                    content: "No-till farming is a cultivation method that avoids disturbing the soil through tillage. Instead of plowing fields and turning over the top layer of soil before planting, farmers using no-till techniques plant directly into the previous year's crop residue. This approach maintains the soil's natural structure, preserves organic matter, and protects the complex ecosystem of microorganisms living in the soil.",
+                    sources: ["Regenerative Ag Podcast", "Soil Health Institute"]
+                },
+                { 
+                    title: "Soil Health and Organic Matter Accumulation", 
+                    content: "One of the primary benefits of no-till farming is its positive impact on soil health. By leaving crop residues on the field and not disturbing the soil, organic matter accumulates over time. This increase in organic matter improves soil structure, enhances water retention capacity, and boosts the soil's ability to store and cycle nutrients.",
+                    sources: ["Dr. Elaine Ingham", "Rodale Institute"]
+                },
+                { 
+                    title: "Reduced Chemical Inputs and Natural Pest Control", 
+                    content: "No-till farming practices can lead to a significant reduction in the need for chemical inputs over time. As soil health improves, the natural nutrient cycling processes become more efficient, reducing the need for synthetic fertilizers. Additionally, the diverse ecosystem that develops in no-till fields often promotes natural pest control.",
+                    sources: ["Gabe Brown", "Advancing Eco Agriculture"]
+                },
+                { 
+                    title: "Carbon Sequestration and Climate Change Mitigation", 
+                    content: "No-till farming plays a crucial role in climate change mitigation through carbon sequestration. When soil is tilled, it releases carbon dioxide into the atmosphere. In contrast, no-till practices allow carbon to be stored in the soil. As plants grow, they absorb carbon dioxide from the air and transfer some of this carbon to the soil through their roots and as they decompose.",
+                    sources: ["Soil Carbon Cowboys", "Kiss the Ground"]
+                },
+                { 
+                    title: "Long-Term Benefits and Challenges of No-Till Farming", 
+                    content: "While the long-term benefits of no-till farming are significant, the transition can present challenges for farmers. Initially, there may be a learning curve as farmers adapt to new equipment and techniques. Some may observe a temporary yield decrease as the soil ecosystem adjusts. However, over time, many farmers report improved soil health, better crop resilience to weather extremes, and reduced operational costs.",
+                    sources: ["No-Till Farmer", "Midwest Cover Crops Council"]
+                }
             ]
         };
 
@@ -223,16 +246,13 @@
             }
         }
 
+        listenButton.addEventListener('click', () => {
+            digsAudio.play();
+        });
+
         readButton.addEventListener('click', displayDigs);
-listenButton.addEventListener('click', () => {
-    const digsAudio = document.getElementById('digs-audio');
-    digsAudio.play();
-});
         submitButton.addEventListener('click', submitPrompt);
         speechToTextButton.addEventListener('click', startSpeechToText);
     </script>
-
-    <audio id="digs-audio" src="digs-audio.mp3"></audio>
-    
 </body>
 </html>
