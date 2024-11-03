@@ -1,0 +1,25 @@
+# Create a new directory
+mkdir digs-platform
+cd digs-platform
+
+# Initialize git
+git init
+
+# Create the project structure
+mkdir -p public/audio src/components
+
+# Create all the files as shown above
+# Copy the contents of each artifact into their respective files
+
+# Initialize npm and install dependencies
+npm init -y
+npm install @radix-ui/react-slot class-variance-authority clsx lucide-react react react-dom react-scripts tailwind-merge tailwindcss tailwindcss-animate web-vitals @testing-library/jest-dom @testing-library/react @testing-library/user-event
+
+# Add your MP3 file
+# Copy your audio file to public/audio/explanation.mp3
+
+# Connect to Github
+git remote add origin https://github.com/YOUR_USERNAME/digs-platform.git
+git add .
+git commit -m "Initial commit"
+git push -u origin main
